@@ -1,0 +1,25 @@
+
+.info {
+text-align: center;
+color: aliceblue;
+font-size: large;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-weight: bolder;
+}
+
+.cont {
+    border: 3px solid azure;    
+    background-color: rgb(0, 0, 0);    
+    width: 400px;    
+}
+
+.img {
+    display: flex;
+    height: 400px;
+}
+
+.picture {
+    border: 3px solid azure;    
+    background-color: rgb(0, 0, 0);    
+    width: 400px;    
+}

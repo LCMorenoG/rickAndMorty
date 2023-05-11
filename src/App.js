@@ -1,25 +1,75 @@
-import logo from './logo.svg';
 import './App.css';
+import Cards from './components/Cards/Cards.jsx';
+import style from './App.module.css'
+import NavBar from './components/NavBar/NavBar';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import About from './components/About/About';
+import Detail from './components/Detail/Detail';
+import Forms from "./components/Form/Form";
+import Favorites from './components/Favorites/Favorites';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+   const EMAIL = 'luis@gmail.com';
+   const PASSWORD = 'unaPassw';
+
+   const [characters, setCharacters] = useState([]);
+   const  location  = useLocation(); // guarda la propiedad pathname de Location
+
+   const navigate = useNavigate();
+   const [access, setAccess] = useState(false);
+
+   const login = (userData) => {
+      if (userData.password === PASSWORD && userData.email === EMAIL) {
+         setAccess(true);
+         navigate('/home');
+      }
+   }
+
+   useEffect(() => {
+      !access && navigate('/');
+   }, [access]);
+
+   function onSearch(id) {
+      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
+         } else {
+            window.alert('¡No hay personajes con este ID!');
+         }
+      });
+   };
+
+   const onClose = (id) => {
+      setCharacters(
+         characters.filter((char) => {
+            return char.id !== Number(id)
+         })
+      )
+   };
+
+   return (
+
+      <div className={style.App}>
+
+        
+            {location.pathname !== "/" && <NavBar onSearch={onSearch} />}
+         
+         <Routes>
+            <Route path="/" element={<Forms login={login} />} />
+            <Route path="/home" element={<Cards characters={characters} onClose={onClose} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/favorites" element={<Favorites />} />
+         </Routes>
+
+      </div>
+
+   );
+
 }
 
 export default App;
