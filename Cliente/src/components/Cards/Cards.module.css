@@ -1,0 +1,12 @@
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 20px;    
+  }
+  
+  @media (max-width: 768px) {
+    .contenedor {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }

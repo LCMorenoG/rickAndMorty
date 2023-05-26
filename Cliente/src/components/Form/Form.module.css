@@ -1,0 +1,70 @@
+.log {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../assets/loginbg.png");
+  background-size: cover;
+  width: 100%;
+  background-position: center;  
+}
+
+.log form {  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 350px;
+    background-color: #000;
+    border-radius: 20px;
+  }
+  
+  .log label {
+    color: #ccc;
+    font-weight: bold;
+    margin-bottom: 5px;    
+    font-size: large;    
+  }
+  
+  .log input[type="text"],
+  .log input[type="password"] {
+    width: 250px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  .log input:hover {    
+    color: #000;
+    font-weight: bold;
+    border: 3px solid #00ffa2;
+  }
+  
+  .log p {
+    color: red;
+    margin-bottom: 5px;
+  }
+  
+  .log button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    background-color: #01342c;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .log button:hover {
+    background-color: #00ffa2;
+    color: #000;
+    font-weight: bold;
+  }

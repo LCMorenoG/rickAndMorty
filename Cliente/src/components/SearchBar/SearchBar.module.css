@@ -1,0 +1,50 @@
+.contenedo {
+  display: flex;
+  align-items: center;
+}
+
+.contenedo input[type="search"] {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.contenedo button {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out;
+}
+
+.contenedo button:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #00ffa2;
+  transition: width 0.3s ease-in-out;
+}
+
+.contenedo button:hover:before {
+  width: 100%;
+}
+
+.contenedo button:hover {
+  color: #00ffa2;
+  box-shadow:5px 5px 5px #ff8c00;
+}
